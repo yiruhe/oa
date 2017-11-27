@@ -18,7 +18,7 @@ import java.util.List;
 public class GeneralDaoImpl<T> implements IGeneralDao<T> {
 
     @Autowired
-    private SessionFactory sessionFactory;
+    protected SessionFactory sessionFactory;
 
     private Class<T> targetType;
 

@@ -28,7 +28,7 @@
 	-->
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 			<property name="dataSource" ref="dataSource" />
-			<property name="mappingLocations" value="classpath:com/oa/*/domain/*.hbm.xml" />
+			<property name="mappingLocations" value="classpath*:com/oa/*/domain/*.hbm.xml" />
 			<property name="hibernateProperties">
 				<value>
 					hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
@@ -37,8 +37,8 @@
 					current_session_context_class=thread
 				</value>											
 			</property>
-	</bean>
 
+	</bean>
 
 
 	<!-- 配置数据库连接池 -->

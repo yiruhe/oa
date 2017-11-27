@@ -4,6 +4,8 @@ import com.oa.base.dao.IDepartmentDao;
 import com.oa.base.domain.Department;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 
 /**
  * @author Q
@@ -13,4 +15,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public class DepartmentDaoImpl extends GeneralDaoImpl<Department> implements IDepartmentDao<Department> {
+
+
 }

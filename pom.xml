@@ -134,18 +134,19 @@
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
-      <version>4.3.10.Final</version>
+      <version>4.3.11.Final</version>
     </dependency>
 
 
 
 
-    <!-- slf4j -->
+    <!-- slf4j 接口-->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
       <version>1.7.12</version>
     </dependency>
+
 
     <dependency>
       <groupId>org.slf4j</groupId>
@@ -153,7 +154,7 @@
       <version>1.7.12</version>
     </dependency>
 
-    <!-- log4j -->
+    <!-- log4j 实现-->
     <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>

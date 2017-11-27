@@ -15,8 +15,9 @@ import java.util.Set;
 @Getter
 @Setter
 
-public class Department extends  Domain implements Serializable {
+public class Department implements Serializable {
 
+    private Long id;
     private String name;
     private String description;
 

@@ -12,6 +12,7 @@
 
 
 	<!-- 定义LOG4J监听器 -->
+	<!-- 加载Spring框架中的log4j监听器Log4jConfigListener -->
 	<listener>
 		<listener-class>
 			org.springframework.web.util.Log4jConfigListener
@@ -66,12 +67,12 @@
 	    <url-pattern>/*</url-pattern>  
 	</filter-mapping>
 
-<!--
+
 	<filter>
 		<filter-name>OSIV</filter-name>
 		<filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
 		<init-param>
-			&lt;!&ndash; 在web.xml中配置OpenSessionInViewFilter时应该指定SessionFactory的名字 &ndash;&gt;
+			<!--在web.xml中配置OpenSessionInViewFilter时应该指定SessionFactory的名字-->
 			<param-name>sessionFactoryBeanName</param-name>
 			<param-value>sessionFactory</param-value>
 		</init-param>
@@ -79,6 +80,6 @@
 	<filter-mapping>
 		<filter-name>OSIV</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping>-->
+	</filter-mapping>
 
 </web-app>

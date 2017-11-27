@@ -13,8 +13,9 @@ import java.io.Serializable;
  */
 @Getter
 @Setter
-public class Post extends Domain implements Serializable {
+public class Post  implements Serializable {
 
+    private Long id;
     private String name;
     private String description;
 

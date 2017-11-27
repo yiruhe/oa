@@ -2,6 +2,7 @@ package com.oa.base.dao.impl;
 
 import com.oa.base.dao.IEmployeeDao;
 import com.oa.base.domain.Employee;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author Q
@@ -9,9 +10,7 @@ import com.oa.base.domain.Employee;
  * @Description: ${todo}
  * @date 2017-11-23 22:21
  */
-public class EmployeeDaoImpl extends GeneralDaoImpl<Employee> implements IEmployeeDao{
-
-
-
+@Repository
+public class EmployeeDaoImpl extends GeneralDaoImpl<Employee> implements IEmployeeDao<Employee>{
 
 }
