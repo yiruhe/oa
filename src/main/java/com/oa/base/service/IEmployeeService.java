@@ -1,6 +1,7 @@
 package com.oa.base.service;
 
 import com.oa.base.domain.Employee;
+import com.oa.base.domain.Menu;
 
 import java.util.List;
 
@@ -42,4 +43,17 @@ public interface IEmployeeService {
      * @return
      */
     List<Employee> queryAll();
+
+    /**
+     * 保存用户的权限
+     * @param ids
+     */
+    void savePrivilege(Long id,Long[] ids);
+
+    /**
+     *  查询当前用户id的权限
+     * @param id
+     * @return
+     */
+    List<Menu> queryUserPrivilege(Long id);
 }
