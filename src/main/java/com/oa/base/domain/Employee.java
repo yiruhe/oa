@@ -24,4 +24,5 @@ public class Employee implements Serializable {
     private String email;
     private Department department;
     private Set<Post> posts = new HashSet<>();
+    private Set<Menu> menu = new HashSet<>();
 }

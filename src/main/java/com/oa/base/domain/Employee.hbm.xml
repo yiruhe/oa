@@ -11,9 +11,15 @@
 		<property name="sex" type="java.lang.String" length="1" />
 		<property name="phone" type="java.lang.String" length="11" />
 		<many-to-one name="department" column="department_id" />
+		<!--与岗位建立多对对关系-->
 		<set name="posts" table="employee_post">
 			<key column="employee_id" />
 			<many-to-many column="post_id" class="com.oa.base.domain.Post" />
+		</set>
+		<!--与Menu建立多对多关系-->
+		<set name="menu" table="employee_menu">
+			<key column="employee_id" />
+			<many-to-many column="menu_id" class="com.oa.base.domain.Menu" />
 		</set>
 	</class>
 </hibernate-mapping>

@@ -1,7 +1,6 @@
 package com.oa.base.dao.impl;
 
 import com.oa.base.dao.IGeneralDao;
-import com.oa.base.domain.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,7 @@ import java.util.List;
  * @Description: ${todo}
  * @date 2017-11-23 22:33
  */
-public class GeneralDaoImpl<T> implements IGeneralDao<T> {
+public abstract class GeneralDaoImpl<T> implements IGeneralDao<T> {
 
     @Autowired
     protected SessionFactory sessionFactory;

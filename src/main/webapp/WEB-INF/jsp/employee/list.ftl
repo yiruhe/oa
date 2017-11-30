@@ -3,8 +3,12 @@
 <head>
     <title>用户列表</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <#include "../common/common.ftl"/>
-    <script src="/js/select_all.js"></script>
+  <#include "../common/common.ftl"/>
+    <script type="text/javascript" src="/js/ztree/js/jquery.ztree.core.js"></script>
+    <script type="text/javascript" src="/js/ztree/js/jquery.ztree.exedit.js"></script>
+    <script type="text/javascript" src="/js/ztree/js/jquery.ztree.excheck.js"></script>
+    <script type="text/javascript" src="/js/privilege.js"></script>
+    <link rel="stylesheet" href="/js/ztree/css/zTreeStyle/zTreeStyle.css" type="text/css">
 </head>
 <body>
 
@@ -36,8 +40,9 @@
         	<#if result??>
                 <#list result as item>
                     <tr class="TableDetail1 template">
+                        <input type="hidden" id="userId" value="${(item.id)!""}" />
                         <td><input type="checkbox" name="userCheckBox"/></td>
-                        <td>${(item.name)!}</td>
+                        <td class="username">${(item.name)!}</td>
                        <td>${(item.department.name)!''}</td>
                         <td>
                            <#if item.posts??>
@@ -48,8 +53,9 @@
                         </td>
                         <td>
                             <a href="/employee/delete/e/${(item.id)!''}">删除</a>
-                            <a href="/employee/update/e?id=${(item.id)!''}">修改</a>
-                            <a href="javascript:;">设置权限</a>
+                            <a href="/employee/update?id=${(item.id)!''}">修改</a>
+                            <a class="privilege" href="javascript:;">设置权限</a>
+                        </td>
                     </tr>
                 </#list>
             </#if>
@@ -63,7 +69,7 @@
     </div>
     
     <div class="ItemBlock_Title1" id="userTitle" style="display: none;"><!-- 信息说明 --><div class="ItemBlock_Title1">
-        	<img border="0" width="4" height="7" src="/css/blue/images/item_point.gif"/>用户:ww
+        	<img border="0" width="4" height="7" src="/css/blue/images/item_point.gif"/>用户:
         	<div id="userImage"></div>
         </div>
     <div class="ItemBlock_Title1" id="privilegeTitle" style="display: none;"><div class="ItemBlock_Title1">
@@ -71,7 +77,7 @@
         </div>
         
         <!-- 表单内容显示 -->
-        <div class="ItemBlockBorder" style="display: none;" id="privilegeContent">
+        <div class="ItemBlockBorder" style="display: none;"  id="privilegeContent">
             <div class="ItemBlock">
                 <table cellpadding="0" cellspacing="0" class="mainForm">
 					<!--表头-->
@@ -90,7 +96,7 @@
 						<tr class="TableDetail1">
 							<!-- 显示权限树 -->
 							<td>
-								<ul id='privilegeTree' class="tree">
+                                <ul id="privilegeTree" class="ztree"></ul>
 							</td>
 						</tr>
 					</tbody>
@@ -99,7 +105,7 @@
         </div>
         <!-- 表单操作 -->
         <div id="InputDetailBar">
-            <image  src="/css/images/save.png"/>
+            <image id="savePrivilege"  src="/css/images/save.png"/>
         </div>
 </div>
 

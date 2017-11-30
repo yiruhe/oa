@@ -1,6 +1,7 @@
 package com.oa.base.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -14,5 +15,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
 
 
+    @RequestMapping("/index/{position}")
+    public String top(@PathVariable String position){
+
+        return "/frame/"+ position;
+}
+
+    @RequestMapping("index")
+    public String index(){
+
+
+        return "/frame/index";
+
+    }
 
 }
