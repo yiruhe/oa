@@ -26,7 +26,21 @@
     <lombok.version>1.16.6</lombok.version>
     <junit.version>4.12</junit.version>
     <mybatis.version>3.4.1</mybatis.version>
+
   </properties>
+
+
+  <!--配置maven下载jar的中央仓库-->
+  <repositories>
+    <repository>
+      <id>maven</id>
+      <url>http://repo1.maven.org/maven2/</url>
+    </repository>
+    <repository>
+      <id>jboss</id>
+      <url>https://repository.jboss.org/nexus/content/repositories/releases</url>
+    </repository>
+  </repositories>
 
 
   <!-- 项目其他构建 -->
@@ -134,8 +148,9 @@
     <dependency>
       <groupId>org.hibernate</groupId>
       <artifactId>hibernate-core</artifactId>
-      <version>4.3.11.Final</version>
+      <version>3.6.10.Final</version>
     </dependency>
+
 
 
 
@@ -248,6 +263,44 @@
       <version>${jcl-over-slf4j.version}</version>
     </dependency>
 
+
+    <!-- JBPM 依赖包  -->
+
+    <dependency>
+      <groupId>org.jbpm.jbpm4</groupId>
+      <artifactId>jbpm-api</artifactId>
+      <version>4.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm.jbpm4</groupId>
+      <artifactId>jbpm-jpdl</artifactId>
+      <version>4.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm.jbpm4</groupId>
+      <artifactId>jbpm-pvm</artifactId>
+      <version>4.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm.jbpm4</groupId>
+      <artifactId>jbpm-log</artifactId>
+      <version>4.4</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm.jbpm4</groupId>
+      <artifactId>jbpm-bpmn</artifactId>
+      <version>4.4</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.mail</groupId>
+      <artifactId>mail</artifactId>
+      <version>1.4.7</version>
+    </dependency>
+
+
+
+
+    <!-- JBPM 依赖包  -->
 
 
   </dependencies>

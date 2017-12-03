@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="
-        http://www.springframework.org/schema/beans
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
          http://www.springframework.org/schema/beans/spring-beans.xsd
           http://www.springframework.org/schema/context
-         http://www.springframework.org/schema/context/spring-context.xsd
-          http://www.springframework.org/schema/aop
-         http://www.springframework.org/schema/aop/spring-aop.xsd
-          http://www.springframework.org/schema/tx
-         http://www.springframework.org/schema/tx/spring-tx.xsd
-  ">
+         http://www.springframework.org/schema/context/spring-context.xsd">
 
 
 	<!-- 使用属性占位符读取properties文件 -->
@@ -26,12 +18,14 @@
 			LocalSessionFactoryBean:使用了FactoryBean创建实例的方法返回SessionFactory
 	
 	-->
-	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
 			<property name="dataSource" ref="dataSource" />
-			<property name="mappingLocations" value="classpath*:com/oa/*/domain/*.hbm.xml" />
+			<!-- 使用hibernate.cfg.xml配置文件 -->
+			<property name="configLocations" value="classpath:jbpm/jbpm.hibernate.cfg.xml" />
+		<property name="mappingLocations" value="classpath*:com/oa/*/domain/*.hbm.xml" />
 			<property name="hibernateProperties">
 				<value>
-					hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+					org.hibernate.dialect.MySQLInnoDBDialect
 					hibernate.show_sql=true
 					hibernate.hbm2ddl.auto=update
 					current_session_context_class=thread
@@ -48,6 +42,19 @@
 		<property name="username" value="${jdbc.username}" />
 		<property name="password" value="${jdbc.password}" />
 	</bean>
+
+
+
+	<!--jbpm配置-->
+	<bean id="springHelper" class="org.jbpm.pvm.internal.processengine.SpringHelper">
+		<property name="jbpmCfg" value="jbpm.cfg.xml"></property>
+	</bean>
+
+	<!--创建流程引擎-->
+	<bean id="processEngine" factory-bean="springHelper" factory-method="createProcessEngine" />
+
+
+
 
 
 </beans>
